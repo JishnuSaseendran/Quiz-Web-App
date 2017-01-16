@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="test-name">
+  <h3> Questionnaire </h3>
+  <p> There are 10 multiple choice questions each carries 1 mark and -0.5 mark for wrong answer</p>
+  <h3> Wish you all the best </h3>
+</div>
+<br>
+<br>
+<form action= 'result/' method = "POST" >
+  {% for question in questions %}
+    <div class='question'>{{ question.question_number }}. {{ question.question }}</div><br>
+
+    <div class='choices'>
+      <input type = "radio" name="{{question.id}}" value="{{question.choice1}}">{{question.choice1}}<br>
+      <input type = "radio" name="{{question.id}}" value="{{question.choice2}}">{{question.choice2}}<br>
+      <input type = "radio" name="{{question.id}}" value="{{question.choice3}}">{{question.choice3}}<br>
+      <input type = "radio" name="{{question.id}}" value="{{question.choice4}}">{{question.choice4}}<br>
+      <input type = "radio" name="{{question.id}}" value="{{question.choice5}}">{{question.choice5}}<br>
+    </div><br>
+    <br>
+  {% endfor %}
+  <input type="submit" class="submit" id="submit" value="Submit"/>
+  {% csrf_token %}
+
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+body {
+    background: white url("background.png");
+}
+
+.page-header {
+    background-color: #000000;
+    
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1{
+    color: #CFED21;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+.question{
+      font-size: x-large;
+      font-family: sans-serif;
+
+
+    
+
+
+
+
