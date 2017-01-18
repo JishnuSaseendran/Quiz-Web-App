@@ -3,6 +3,7 @@ from django.db import models
 
 class Questions(models.Model):
     ''' This is Model class, which contain question,choices and it's answer'''
+    user = models.ForeignKey('auth.User', blank=True, null=True)
     question_number = models.CharField(max_length = 2)
     question = models.CharField(max_length = 200)
     choice1 = models.CharField(max_length = 200)

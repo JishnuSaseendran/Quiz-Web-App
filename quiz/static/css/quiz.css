@@ -4,7 +4,6 @@ body {
 
 .page-header {
     background-color: #000000;
-    
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -19,13 +18,15 @@ body {
     margin-left: 40px;
 }
 
+
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 15pt;
+    margin-right: 20px;
+}
+
 .question{
       font-size: x-large;
       font-family: sans-serif;
-
-
-    
-
-
-
-

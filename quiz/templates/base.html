@@ -8,12 +8,17 @@
         <link rel="stylesheet" href="{% static 'css/quiz.css' %}">
     </head>
     <body>
-      <div class="page-header">
-        <h1> Selection Process</h1>
-        <a href="https://github.com/JishnuSaseendran/Quiz-Web-App.git">GitHub - source code</a>
+        <div class="page-header">
+            <h1> Selection Process</h1>
+            <a href="https://github.com/JishnuSaseendran/Quiz-Web-App.git">GitHub - source code</a>
+            {% if user.is_authenticated %}
+                <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+            {% else %}
+                <a href="{% url 'register' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
+                <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+            {% endif %}
         
-        
-      </div>
+        </div>
 
         <div class="content container">
             <div class="row">

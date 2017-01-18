@@ -1,11 +1,31 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate
+from django.views.generic import View
 from .models import Questions
+from .forms import UserForm
 
 def index(request):
         '''This function collects the questons'''
         questions = Questions.objects.all()
         return render(request, 'question.html', {'questions': questions})
+def register(request):
+    questions = Questions.objects.all()
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user.set_password(password)
+            user.save()
+            return render(request, 'question.html', {'questions': questions})
 
+    else:
+        form = UserForm()
+    return render(request, 'register.html', {'form': form}) 
+
+@login_required
 def score(request):
         questions = Questions.objects.all()
         score = 0
@@ -16,7 +36,7 @@ def score(request):
                 score += question.mark 
         return render(request, 'score.html', {'questions': questions, 'score': score})
 
-
+@login_required
 def result(request):
         questions = Questions.objects.all()
         

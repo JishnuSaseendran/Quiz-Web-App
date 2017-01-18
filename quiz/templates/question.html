@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
 <div class="test-name">
   <h3> Questionnaire </h3>
   <p> There are 10 multiple choice questions each carries 1 mark and -0.25 mark for wrong answer</p>
@@ -28,4 +28,7 @@
   {% csrf_token %}
 
 </form>
+{% else %}
+  <p> Please Login </p>
+{% endif %}
 {% endblock %}
