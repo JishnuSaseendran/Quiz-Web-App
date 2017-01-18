@@ -11,6 +11,10 @@ class Questions(models.Model):
     choice4 = models.CharField(max_length = 200)
     choice5 = models.CharField(max_length = 200)
     answer = models.CharField(max_length = 200)
-
+    choice = models.CharField(max_length=200, default=0 )
+    mark = models.FloatField(default=0)
+    
     def __str__(self):
         return self.question
+
+

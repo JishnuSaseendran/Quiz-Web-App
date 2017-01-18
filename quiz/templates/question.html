@@ -4,9 +4,11 @@
 
 <div class="test-name">
   <h3> Questionnaire </h3>
-  <p> There are 10 multiple choice questions each carries 1 mark and -0.5 mark for wrong answer</p>
-  <h3> Wish you all the best </h3>
+  <p> There are 10 multiple choice questions each carries 1 mark and -0.25 mark for wrong answer</p>
+  <p> Wish you all the best </p>
+  <h3><a href="{% url 'score' %}"> Your Answers </a></h3>
 </div>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 <br>
 <br>
 <form action= 'result/' method = "POST" >
