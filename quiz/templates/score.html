@@ -3,8 +3,13 @@
 {% block content %}
 {% for question in questions %}
     <div class='question'>{{ question.question_number }}. {{ question.question }}</div><br>
-    <p>The Selected Answer is = {{ question.choice }}</p>
+    
     <p>The Correct Answer is = {{ question.answer }}</p>
 {% endfor %}
-<h3> Score you obtained is {{score}} out of 10 </h3><br>
+{% for users in usernames %}
+    {% if users.username == request.user.username %}
+        <h3> Your answers are {{users.choice}}</h3><br>
+        <h3> Score you obtained is {{users.mark}} out of 10 </h3><br>
+    {% endif %}
+{% endfor %}
 {% endblock %}
